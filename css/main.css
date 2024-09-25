@@ -143,16 +143,22 @@ ul {
 /***** Meme editor *****/
 .meme-editor {
   display: grid;
+  align-items: center;
+  justify-content: space-between;
   grid-template-columns: 1fr 1fr;
   margin-top: 100px;
   margin-bottom: 25px;
+  margin-left: 50px;
   gap: 100px;
 }
 
 /* Canvas */
-.canvas-container {
-  margin-left: 50px;
+canvas{
+  display: block;
   background-color: white;
+}
+.canvas-container {
+
 }
 
 .canvas-choices {
@@ -161,7 +167,6 @@ ul {
   align-items: center;
   justify-content: center;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  width: fit-content;
 }
 
 /* Text editing */
@@ -235,7 +240,7 @@ ul {
 /* Img features */
 .img-features {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px;
   width: 100%;
 }

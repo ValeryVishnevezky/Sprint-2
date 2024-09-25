@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>MemeGenerator</title>
   </head>
+  
   <body onload="onInit()">
     <header class="main-header">
       <img class="main-logo" src="img/logo/LOGO.png" alt="Logo" />
@@ -52,10 +53,10 @@
       <!-- Meme gallery -->
       <section class="meme-gallery">
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/1.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (various aspect ratios)/1.jpg" alt="" />
         </div>
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/2.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (various aspect ratios)/2.jpg" alt="" />
         </div>
         <div class="meme-photo">
           <img src="img/meme-imgs/meme-imgs (square)/3.jpg" alt="" />
@@ -69,7 +70,7 @@
     <!-- Meme editor -->
     <section class="meme-editor">
       <div class="canvas-container">
-        <canvas width="500" height="500"></canvas>
+        <canvas></canvas>
       </div>
 
     <!-- Text editing -->
@@ -136,8 +137,8 @@
         <section class="choices3">
           <select class="impact">
             <option value="">Impact</option>
-            <option value="vendor">Impact</option>
-            <option value="maxSpeed">Impact</option>
+            <option value="">Impact</option>
+            <option value="">Impact</option>
           </select>
           <div class="color">
             <input
@@ -170,6 +171,7 @@
           </button>
           <button class="share-btn" onclick="onUploadImg()">Share</button>
         </section>
+
 
       </section>
     </section>
