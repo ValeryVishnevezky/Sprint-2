@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/logo/logo-shortcut.png" />
+    <script
+      src="https://kit.fontawesome.com/c43a39f2fd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>MemeGenerator</title>
+  </head>
+  <body onload="onInit()">
+    <header class="main-header">
+      <img class="main-logo" src="img/logo/LOGO.png" alt="Logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li class="gallery"><a href="#">Gallery</a></li>
+          <li class="about"><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <button class="btn-toggle-menu" onclick="toggleMenu()">
+        <li class="btn-toggle-menu">
+          <i class="fa-solid fa-bars"></i>
+        </li>
+      </button>
+    </header>
+
+    <!-- Gallery -->
+    <section class="gallery">
+      
+      <!-- Search -->
+      <section class="search">
+        <section class="search-panel">
+          <input
+            type="text"
+            name="search-text"
+            placeholder="Enter search keyword"
+            title="Search"
+          />
+          <button class="searchButton" onclick="performSearch()">
+            <img
+              class="up-down"
+              src="img/icons/search-icon.png"
+              alt="up-down"
+            />
+          </button>
+        </section>
+      </section>
+
+      <!-- Meme gallery -->
+      <section class="meme-gallery">
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/1.jpg" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/2.jpg" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/3.jpg" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/4.jpg" alt="" />
+        </div>
+      </section>
+    </section>
+
+    <!-- Meme editor -->
+    <section class="meme-editor">
+      <div class="canvas-container">
+        <canvas width="500" height="500"></canvas>
+      </div>
+
+    <!-- Text editing -->
+      <section class="canvas-choices">
+        <section class="text-editing">
+          <input
+            type="text"
+            name="meme-text"
+            value="Enter your text"
+            onchange="onSetColor(value)"
+            title="Enter text"
+          />
+        </section>
+
+    <!-- Buttons up-down/add/trash -->
+        <section class="choices1">
+          <button value="up-down">
+            <img
+              class="up-down"
+              src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png"
+              alt="up-down"
+            />
+          </button>
+          <button value="add">
+            <img class="add" src="img/icons/add.png" alt="add" />
+          </button>
+          <button onclick="onRenderCanvas()">
+            <img class="trash" src="img/icons/trash.png" alt="trash" />
+          </button>
+        </section>
+
+    <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
+        <section class="choices2">
+          <button value="text-up">
+            <img class="text-up" src="img/icons/increase font - icon.png" />
+          </button>
+          <button value="text-down">
+            <img class="text-down" src="img/icons/decrease font - icon.png" />
+          </button>
+          <button value="text-left">
+            <img
+              class="text-left"
+              src="img/icons/align-to-left.png"
+              alt="text-left"
+            />
+          </button>
+          <button value="text-center">
+            <img
+              class="text-center"
+              src="img/icons/center-text-alignment.png"
+              alt="text-center"
+            />
+          </button>
+          <button value="text-right">
+            <img
+              class="text-right"
+              src="img/icons/align-to-right.png"
+              alt="text-right"
+            />
+          </button>
+        </section>
+
+    <!-- Buttons impact/background text color/stroke color -->
+        <section class="choices3">
+          <select class="impact">
+            <option value="">Impact</option>
+            <option value="vendor">Impact</option>
+            <option value="maxSpeed">Impact</option>
+          </select>
+          <div class="color">
+            <input
+              type="color"
+              name="background-color"
+              value="#ffffff"
+              onchange="onSetColor(value)"
+              title="Choose your color"
+            />
+            <input
+              type="color"
+              name="stroke-color"
+              value="#000000"
+              onchange="onSetColor(value)"
+              title="Choose your color"
+            />
+          </div>
+        </section>
+
+    <!-- Buttons download/share/stroke color -->
+        <section class="img-features">
+          <button class="download-btn">
+            <a
+              href="#"
+              class="btn"
+              onclick="onDownloadImg(this)"
+              download="my-img.jpg"
+              >Save</a
+            >
+          </button>
+          <button class="share-btn" onclick="onUploadImg()">Share</button>
+        </section>
+
+      </section>
+    </section>
+    <div class="share-container"></div>
+
+    <script src="js/util.js"></script>
+    <script src="js/upload.service.js"></script>
+    <script src="js/gallery.service.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
