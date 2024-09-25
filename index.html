@@ -17,11 +17,11 @@
       <img class="main-logo" src="img/logo/LOGO.png" alt="Logo" />
       <nav class="main-nav">
         <ul class="main-nav-list">
-          <li class="gallery"><a href="#">Gallery</a></li>
-          <li class="about"><a href="#">About</a></li>
+          <li class="link-gallery" onclick="onLinkGalleryClick()"><a href="#">Gallery</a></li>
+          <li class="link-editor" onclick="onLinkEditorClick()"><a href="#">Editor</a></li>
         </ul>
       </nav>
-      <button class="btn-toggle-menu" onclick="toggleMenu()">
+      <button class="btn-toggle-menu hide" onclick="toggleMenu()">
         <li class="btn-toggle-menu">
           <i class="fa-solid fa-bars"></i>
         </li>
@@ -53,22 +53,70 @@
       <!-- Meme gallery -->
       <section class="meme-gallery">
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (various aspect ratios)/1.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (square)/1.jpg"  onclick="onImageClick(1)" alt="" />
         </div>
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (various aspect ratios)/2.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (square)/2.jpg" onclick="onImageClick(2)" alt="" />
         </div>
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/3.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (square)/3.jpg" onclick="onImageClick(3)" alt="" />
         </div>
         <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/4.jpg" alt="" />
+          <img src="img/meme-imgs/meme-imgs (square)/4.jpg" onclick="onImageClick(4)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/5.jpg" onclick="onImageClick(5)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/6.jpg" onclick="onImageClick(6)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/7.jpg" onclick="onImageClick(7)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/8.jpg" onclick="onImageClick(8)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/9.jpg" onclick="onImageClick(9)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/10.jpg" onclick="onImageClick(10)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/11.jpg" onclick="onImageClick(11)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/12.jpg" onclick="onImageClick(12)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/13.jpg" onclick="onImageClick(13)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/14.jpg" onclick="onImageClick(14)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/15.jpg" onclick="onImageClick(15)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/16.jpg" onclick="onImageClick(16)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/17.jpg" onclick="onImageClick(17)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/18.jpg" onclick="onImageClick(18)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/19.jpg" onclick="onImageClick(19)" alt="" />
+        </div>
+        <div class="meme-photo">
+          <img src="img/meme-imgs/meme-imgs (square)/20.jpg" onclick="onImageClick(20)" alt="" />
         </div>
       </section>
     </section>
 
     <!-- Meme editor -->
-    <section class="meme-editor">
+    <section class="meme-editor hide">
       <div class="canvas-container">
         <canvas></canvas>
       </div>
