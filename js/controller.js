@@ -59,7 +59,7 @@ function renderLines() {
         if (idx === meme.selectedLineIdx) {
             drawLine(line.x - 100, line.y + 20, line.x + 100, line.y + 20)
         }
-        drawText(line.txt, line.size, line.color, line.strokeColor, line.align, line.x, line.y)
+        drawText(line.txt, line.size, line.font, line.color, line.strokeColor, line.align, line.x, line.y)
     })
 }
 

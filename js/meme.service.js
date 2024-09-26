@@ -34,11 +34,11 @@ function getMeme(){
 }
 
 // Draw line text
-function drawText(txt, size, color, stroke, align, x, y) {
+function drawText(txt, size, font, color, stroke, align, x, y) {
     gCtx.lineWidth = 2
     gCtx.fillStyle = color
     gCtx.strokeStyle = stroke
-    gCtx.font = `${size}px Impact`
+    gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
     gCtx.fillText(txt, x, y)
