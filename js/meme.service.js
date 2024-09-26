@@ -6,7 +6,7 @@ function createMeme(imgId){
         lines: [
             {
                 txt: 'I sometimes eat Falafel',
-                size: 30,
+                size: 40,
                 font: 'Impact',
                 color: 'white',
                 strokeColor: 'black',
@@ -16,7 +16,7 @@ function createMeme(imgId){
             },
             {
                 txt: 'Meme text sample',
-                size: 30,
+                size: 40,
                 font: 'Impact',
                 color: 'yellow',
                 strokeColor: 'black',
@@ -58,7 +58,7 @@ function drawLine(x, y, xEnd, yEnd) {
 function setLineTxt(txt, size, font, color, stroke, align) {
     gMeme.lines.push({
         txt: txt || 'Meme text sample',
-        size: size || 30,
+        size: size || 40,
         font: font || 'Impact',
         color: color || 'white',
         strokeColor: stroke || 'black',
