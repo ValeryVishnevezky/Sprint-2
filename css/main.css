@@ -303,3 +303,8 @@ canvas{
 .hide {
   display: none;
 }
+
+.selected-line{
+border: 2px solid white;
+border-radius: 12px;
+}

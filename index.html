@@ -134,7 +134,7 @@
 
     <!-- Buttons up-down/add/trash -->
         <section class="choices1">
-          <button value="up-down">
+          <button value="up-down" onclick="onSwitchLine()">
             <img
               class="up-down"
               src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png"
@@ -144,14 +144,14 @@
           <button value="add" onclick="onAddLine()">
             <img class="add" src="img/icons/add.png" alt="add" />
           </button>
-          <button onclick="onRenderCanvas()">
+          <button onclick="onDeleteLine()">
             <img class="trash" src="img/icons/trash.png" alt="trash" />
           </button>
         </section>
 
     <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
         <section class="choices2">
-          <button value="switch" onclick="onSwitchLine()">
+          <button value="text-up">
             <img class="text-up" src="img/icons/increase font - icon.png" />
           </button>
           <button value="text-down">

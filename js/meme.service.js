@@ -1,7 +1,7 @@
 function createMeme(selectedImgId){
     gMeme = {
         selectedImgId: selectedImgId,
-        selectedLineIdx: 0,
+        selectedLineIdx: 1,
         lines: [
             {
                 txt: 'I sometimes eat Falafel',
@@ -40,6 +40,15 @@ function drawText(txt, size, color, stroke, align, x, y) {
     gCtx.textBaseline = 'middle'
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+}
+
+function drawLine(x, y, xEnd, yEnd) {
+    gCtx.beginPath()
+    gCtx.moveTo(x, y)
+    gCtx.lineTo(xEnd, yEnd)
+    gCtx.lineWidth = 3
+    gCtx.strokeStyle = 'red'
+    gCtx.stroke()
 }
 
 // Create new line

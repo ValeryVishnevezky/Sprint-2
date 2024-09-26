@@ -35,4 +35,7 @@ function loadImage(imgId, onImageReady) {
         createMeme(img.id)
         renderLines()
     }
+    img.onerror = () => {
+        console.error('Error in img loading')
+    }
 }

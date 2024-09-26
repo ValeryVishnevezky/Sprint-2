@@ -48,8 +48,12 @@ function renderImg(img) {
 //Render line text
 function renderLines() {
     var meme = getMeme()
-    meme.lines.forEach(line => drawText(line.txt, line.size, line.color, line.strokeColor, line.align, line.x, line.y))
-    console.log(gMeme)
+    meme.lines.forEach((line, idx) => {
+        if (idx === meme.selectedLineIdx) {
+            drawLine(line.x - 100, line.y + 20, line.x + 100, line.y + 20)
+        }
+        drawText(line.txt, line.size, line.color, line.strokeColor, line.align, line.x, line.y)
+    })
 }
 
 // Add line on canvas
@@ -63,30 +67,41 @@ function onAddLine() {
 // Set color for text
 function onSetFillColor(color) {
     var meme = getMeme()
-    var addedLine = meme.line[meme.selectedLineIdx]
+    var addedLine = meme.lines[meme.selectedLineIdx]
     addedLine.color = color
     renderLines()
 }
 function onSetStrokeColor(color) {
     var meme = getMeme()
-    var addedLine = meme.line[meme.selectedLineIdx]
+    var addedLine = meme.lines[meme.selectedLineIdx]
     addedLine.strokeColor = color
     renderLines()
 }
 
 // Switch line idx
-function onSwitchLine(){
-
+function onSwitchLine() {
+    var meme = getMeme()
+    var currLineIdx = meme.selectedLineIdx
+    if (currLineIdx >= meme.lines.length - 1) {
+        currLineIdx = 0
+    } else {
+        currLineIdx++
+    }
+    meme.selectedLineIdx = currLineIdx
+    renderLines()
 }
 
-////////////////TO DO///////////////////////////
 // Delete line
-function onRenderCanvas() {
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-    gCtx.fillStyle = 'white'
-    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+function onDeleteLine() {
+    var meme = getMeme()
+    var currLineIdx = meme.selectedLineIdx
+    meme.lines.splice(currLineIdx, 1)
+    if (currLineIdx >= meme.lines.length) {
+        meme.selectedLineIdx = meme.lines.length - 1
+    }
+    console.log(meme.lines, meme.selectedLineIdx)
+    renderLines()
 }
-////////////////////////////////////////////////
 
 //Download img
 function onDownloadImg(elLink) {
