@@ -1,11 +1,13 @@
-function createMeme(selectedImgId){
-    gMeme = {
-        selectedImgId: selectedImgId,
-        selectedLineIdx: 1,
+function createMeme(imgId){
+    gElCanvas.width = 540
+        gMeme = {
+        selectedImgId: imgId,
+        selectedLineIdx: 0,
         lines: [
             {
                 txt: 'I sometimes eat Falafel',
                 size: 30,
+                font: 'Impact',
                 color: 'white',
                 strokeColor: 'black',
                 align: 'center',
@@ -15,11 +17,12 @@ function createMeme(selectedImgId){
             {
                 txt: 'Meme text sample',
                 size: 30,
+                font: 'Impact',
                 color: 'yellow',
                 strokeColor: 'black',
                 align: 'center',
                 x: gElCanvas.width / 2,
-                y: gElCanvas.height - 50
+                y: 300
             }
         ]
     }
@@ -32,10 +35,10 @@ function getMeme(){
 
 // Draw line text
 function drawText(txt, size, color, stroke, align, x, y) {
-    gCtx.lineWidth = 1
+    gCtx.lineWidth = 2
     gCtx.fillStyle = color
     gCtx.strokeStyle = stroke
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px Impact`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
     gCtx.fillText(txt, x, y)
@@ -52,10 +55,11 @@ function drawLine(x, y, xEnd, yEnd) {
 }
 
 // Create new line
-function setLineTxt(txt, size, color, stroke, align) {
+function setLineTxt(txt, size, font, color, stroke, align) {
     gMeme.lines.push({
         txt: txt || 'Meme text sample',
         size: size || 30,
+        font: font || 'Impact',
         color: color || 'white',
         strokeColor: stroke || 'black',
         align: align || 'center',

@@ -25,17 +25,3 @@ gImgs = [
 function getImgById(imgId) {
     return gImgs.find(img => img.id === imgId)
 }
-
-// Load img to canvas
-function loadImage(imgId, onImageReady) {
-    var img = new Image()
-    img.src = imgId.url
-    img.onload = () => {
-        onImageReady(img)
-        createMeme(img.id)
-        renderLines()
-    }
-    img.onerror = () => {
-        console.error('Error in img loading')
-    }
-}

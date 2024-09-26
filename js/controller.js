@@ -29,25 +29,32 @@ function onImageClick(imgId) {
     var elSecondFooter = document.querySelector('.second-footer')
     elSecondFooter.classList.add('second-footer-editor')
     elSecondFooter.classList.remove('second-footer-gallery')
+    createMeme(imgId)
     renderMeme(imgId)
 }
 
 // Render meme
 function renderMeme(imgId) {
     var img = getImgById(imgId)
-    loadImage(img, renderImg)
+    renderImg(img)
 }
 
 // Render image
-function renderImg(img) {
+function renderImg(imgObj) {
+    var img = new Image()
+    img.src = imgObj.url
+    img.onload = () => {
     gElCanvas.width = 540
     gElCanvas.height = (img.naturalHeight * gElCanvas.width) / img.naturalWidth
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    renderLines()
+    }
 }
 
 //Render line text
 function renderLines() {
     var meme = getMeme()
+    renderMeme(meme.selectedImgId)
     meme.lines.forEach((line, idx) => {
         if (idx === meme.selectedLineIdx) {
             drawLine(line.x - 100, line.y + 20, line.x + 100, line.y + 20)
@@ -99,7 +106,17 @@ function onDeleteLine() {
     if (currLineIdx >= meme.lines.length) {
         meme.selectedLineIdx = meme.lines.length - 1
     }
-    console.log(meme.lines, meme.selectedLineIdx)
+    renderMeme(meme.selectedImgId)
+    renderLines()
+}
+
+// Font change
+function onFontChange() {
+    var fontSelect = document.querySelector('.font')
+    var selectedFont = fontSelect.value
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.font = selectedFont
     renderLines()
 }
 
@@ -111,7 +128,6 @@ function onDownloadImg(elLink) {
 
 //Facebook
 function onUploadToFB(url) {
-    console.log('url:', url)
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
 }
 
