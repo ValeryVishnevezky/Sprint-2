@@ -127,8 +127,7 @@
           <input
             type="text"
             name="meme-text"
-            value="Enter your text"
-            onchange="onSetColor(value)"
+            value=""
             title="Enter text"
           />
         </section>
@@ -142,7 +141,7 @@
               alt="up-down"
             />
           </button>
-          <button value="add">
+          <button value="add" onclick="onAddLine()">
             <img class="add" src="img/icons/add.png" alt="add" />
           </button>
           <button onclick="onRenderCanvas()">
@@ -152,7 +151,7 @@
 
     <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
         <section class="choices2">
-          <button value="text-up">
+          <button value="switch" onclick="onSwitchLine()">
             <img class="text-up" src="img/icons/increase font - icon.png" />
           </button>
           <button value="text-down">
@@ -193,14 +192,14 @@
               type="color"
               name="background-color"
               value="#ffffff"
-              onchange="onSetColor(value)"
+              onchange="onSetFillColor(this.value)"
               title="Choose your color"
             />
             <input
               type="color"
               name="stroke-color"
               value="#000000"
-              onchange="onSetColor(value)"
+              onchange="onSetStrokeColor(this.value)"
               title="Choose your color"
             />
           </div>

@@ -48,8 +48,45 @@ function renderImg(img) {
 //Render line text
 function renderLines() {
     var meme = getMeme()
-    meme.lines.forEach(line => drawText(line.txt, line.size, line.color, line.stroke, line.align, line.x, line.y))
+    meme.lines.forEach(line => drawText(line.txt, line.size, line.color, line.strokeColor, line.align, line.x, line.y))
+    console.log(gMeme)
 }
+
+// Add line on canvas
+function onAddLine() {
+    var elText = document.querySelector('input[name="meme-text"]')
+    var lineText = elText.value
+    setLineTxt(lineText)
+    renderLines()
+}
+
+// Set color for text
+function onSetFillColor(color) {
+    var meme = getMeme()
+    var addedLine = meme.line[meme.selectedLineIdx]
+    addedLine.color = color
+    renderLines()
+}
+function onSetStrokeColor(color) {
+    var meme = getMeme()
+    var addedLine = meme.line[meme.selectedLineIdx]
+    addedLine.strokeColor = color
+    renderLines()
+}
+
+// Switch line idx
+function onSwitchLine(){
+
+}
+
+////////////////TO DO///////////////////////////
+// Delete line
+function onRenderCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+    gCtx.fillStyle = 'white'
+    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+}
+////////////////////////////////////////////////
 
 //Download img
 function onDownloadImg(elLink) {
@@ -87,7 +124,7 @@ function toggleMenu() {
 }
 
 function onSwitchIcon() {
-    
+
     if (document.body.classList.toggle('menu-open')) {
         btn.innerHTML = `<i class="fa-solid fa-xmark"></i>`
     } else {

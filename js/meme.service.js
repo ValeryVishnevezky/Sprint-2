@@ -46,12 +46,13 @@ function drawText(txt, size, color, stroke, align, x, y) {
 function setLineTxt(txt, size, color, stroke, align) {
     gMeme.lines.push({
         txt: txt || 'Meme text sample',
-        size: size || 20,
+        size: size || 30,
         color: color || 'white',
         strokeColor: stroke || 'black',
         align: align || 'center',
         x: gElCanvas.width / 2,
         y: gElCanvas.height / 2
     })
-    renderMeme()
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
+
