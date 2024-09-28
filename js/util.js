@@ -34,7 +34,8 @@ function onLinkGalleryClick() {
     var elSecondFooter = document.querySelector('.second-footer')
     elSecondFooter.classList.remove('second-footer-editor')
     elSecondFooter.classList.add('second-footer-gallery')
-
+    var elEditorLink = document.querySelector('.share-container')
+    elEditorLink.classList.add('hide')
 }
 
 function onLinkEditorClick() {
@@ -53,6 +54,8 @@ function onLinkEditorClick() {
     var elSecondFooter = document.querySelector('.second-footer')
     elSecondFooter.classList.add('second-footer-editor')
     elSecondFooter.classList.remove('second-footer-gallery')
+    var elEditorLink = document.querySelector('.share-container')
+    elEditorLink.classList.remove('hide')
 }
 
 // Menu
