@@ -1,8 +1,8 @@
 /* MOBILE ONLY */
 @media (max-width: 640px) {
   /* Header */
-  body{
-    min-height: 900px;
+  html{
+    min-height: 800px;
   }
   .main-header {
     position: sticky;
@@ -109,7 +109,7 @@
     height: 40px;
   }
   .share-container button {
-    margin-bottom: 400px;
+    margin-bottom: 200px;
   }
   .share-container p{
     font-size: 0.5rem;
