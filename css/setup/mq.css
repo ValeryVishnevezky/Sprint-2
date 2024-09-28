@@ -136,6 +136,9 @@
   .main-footer-info h1 {
     font-size: 22px;
   }
+  .second-footer-editor {
+    height: 120px;
+  }
 }
 
 /* SMALL */
