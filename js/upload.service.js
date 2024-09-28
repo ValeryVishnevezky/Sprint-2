@@ -1,3 +1,5 @@
+'use strict'
+
 async function uploadImg(imgData, onSuccess) {
     const CLOUD_NAME = 'webify'
     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`

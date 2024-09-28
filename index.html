@@ -151,27 +151,27 @@
 
     <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
         <section class="choices2">
-          <button value="text-up">
+          <button value="text-up" onclick="onFontUp()">
             <img class="text-up" src="img/icons/increase font - icon.png" />
           </button>
-          <button value="text-down">
+          <button value="text-down" onclick="onFontDown()">
             <img class="text-down" src="img/icons/decrease font - icon.png" />
           </button>
-          <button value="text-left">
+          <button value="text-left" onclick="onTextLeft()">
             <img
               class="text-left"
               src="img/icons/align-to-left.png"
               alt="text-left"
             />
           </button>
-          <button value="text-center">
+          <button value="text-center" onclick="onTextCenter()">
             <img
               class="text-center"
               src="img/icons/center-text-alignment.png"
               alt="text-center"
             />
           </button>
-          <button value="text-right">
+          <button value="text-right" onclick="onTextRight()">
             <img
               class="text-right"
               src="img/icons/align-to-right.png"
@@ -240,6 +240,7 @@
     </footer>
 
     <script src="js/util.js"></script>
+    <script src="js/storage.service.js"></script>
     <script src="js/upload.service.js"></script>
     <script src="js/gallery.service.js"></script>
     <script src="js/meme.service.js"></script>

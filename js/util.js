@@ -1,10 +1,8 @@
+'use strict'
+
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    window.addEventListener('resize', () => {
-        onResizeCanvas()
-        onRenderCanvas()
-    })
 }
 
 function addMouseListeners() {
@@ -18,3 +16,4 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchend', onUp)
 }
+

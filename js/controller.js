@@ -1,6 +1,9 @@
+'use strict'
+
 var gElCanvas
 var gCtx
 var gMeme
+var gLastPos
 var gImgs
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
@@ -29,6 +32,7 @@ function onImageClick(imgId) {
     var elSecondFooter = document.querySelector('.second-footer')
     elSecondFooter.classList.add('second-footer-editor')
     elSecondFooter.classList.remove('second-footer-gallery')
+    addListeners()
     createMeme(imgId)
     renderMeme(imgId)
 }
@@ -54,13 +58,26 @@ function renderImg(imgObj) {
 //Render line text
 function renderLines() {
     var meme = getMeme()
-    renderMeme(meme.selectedImgId)
     meme.lines.forEach((line, idx) => {
-        if (idx === meme.selectedLineIdx) {
-            drawLine(line.x - 100, line.y + 20, line.x + 100, line.y + 20)
+        drawText(line.txt, line.size, line.font, line.color, line.strokeColor, line.align, line.x, line.y,)
+        var text = gCtx.measureText(line.txt)
+        var startX
+        var endX
+        if (line.align === 'left') {
+            startX = 10
+            endX = 10 + text.width
+        } else if (line.align === 'center') {
+            startX = line.x - text.width / 2
+            endX = line.x + text.width / 2
+        } else if (line.align === 'right') {
+            startX = gElCanvas.width - 10 - text.width
+            endX = gElCanvas.width - 10
         }
-        drawText(line.txt, line.size, line.font, line.color, line.strokeColor, line.align, line.x, line.y)
+        if (idx === meme.selectedLineIdx) {
+            drawLine(startX, line.y + line.size - 10, endX, line.y + line.size - 10)
+        }
     })
+    renderMeme(meme.selectedImgId)
 }
 
 // Add line on canvas
@@ -68,6 +85,15 @@ function onAddLine() {
     var elText = document.querySelector('input[name="meme-text"]')
     var lineText = elText.value
     setLineTxt(lineText)
+    renderLines()
+}
+
+// Set line text
+function onSetText() {
+    var elText = document.querySelector('input[name="meme-text"]')
+    var lineText = elText.value
+    var selectedLine = getLine()
+    selectedLine.txt = lineText
     renderLines()
 }
 
@@ -118,6 +144,72 @@ function onFontChange() {
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.font = selectedFont
     renderLines()
+}
+
+// Font up
+function onFontUp(){
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.size = selectedLine.size + 10
+    renderLines()
+}
+
+// Font down
+function onFontDown(){
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.size = selectedLine.size - 10
+    renderLines()
+}
+
+// Text left
+function onTextLeft(){
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.align = 'left'
+    renderLines()
+}
+
+// Text center
+function onTextCenter(){
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.align = 'center'
+    renderLines()
+}
+
+// Text right
+function onTextRight(){
+    var meme = getMeme()
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    selectedLine.align = 'right'
+    renderLines()
+}
+
+
+// Line move with touch 
+function onDown(ev) {
+    const pos = getEvPos(ev)
+    if (!isLineClicked(pos)) return
+    setLineDrag(true)
+    gLastPos = pos
+    document.body.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+    const { isDrag } = getLine()
+    if (!isDrag) return
+    const pos = getEvPos(ev)
+    const dx = pos.x - gLastPos.x
+    const dy = pos.y - gLastPos.y
+    moveLine(dx, dy)
+    gLastPos = pos
+    renderLines()
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'auto'
 }
 
 //Download img
