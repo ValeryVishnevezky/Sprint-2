@@ -1,0 +1,107 @@
+/**** Main header *****/
+.main-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 67px;
+  color: white;
+  background-color: #ff7f00;
+  padding: 0 55px;
+}
+/* Logo */
+img {
+  width: 200px;
+  height: auto;
+}
+
+/* Nav list */
+
+.main-nav-list,
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  height: 67px;
+}
+.main-nav-list li {
+  font-family: montserrat-regular;
+  font-size: 19px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.main-nav-list li a {
+  color: inherit;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.main-nav-list .link-gallery:hover {
+  color: #040a2c;
+}
+
+.main-nav-list .link-editor {
+  position: relative;
+}
+.main-nav-list .link-editor:hover {
+  color: #040a2c;
+}
+.main-nav-list .link-editor::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 1px;
+  height: 32px;
+  background-color: #8a8a8a;
+}
+
+.select-page {
+  color: #040a2c;
+  border-bottom: 4px solid #040a2c;
+}
+
+/* Button toggle menu */
+.btn-toggle-menu {
+  background-color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-toggle-menu .hamburger-lines {
+  height: 26px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger-lines .line {
+  height: 4px;
+  width: 100%;
+  background-color: aliceblue;
+  transition: 0.4s;
+}
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line1 {
+  rotate: -45deg;
+  transform-origin: top right;
+}
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line2 {
+  scale: 0;
+}
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line3 {
+  rotate: 45deg;
+  transform-origin: bottom right;
+}

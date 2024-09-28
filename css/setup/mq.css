@@ -1,0 +1,218 @@
+/* MOBILE ONLY */
+@media (max-width: 640px) {
+  /* Header */
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 0 20px;
+  }
+  /* navbar change */
+  .main-nav-list {
+    position: fixed;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.8s ease-in-out;
+  }
+  .main-header .main-nav-list ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  .main-header .main-nav-list li {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    background-color: #ff7f00;
+  }
+  .select-page {
+    color: #040a2c;
+    border-bottom: none;
+    border-left: 4px solid #040a2c;
+  }
+  body.menu-open .main-nav-list {
+    opacity: 1;
+    top: 66px;
+  }
+
+  /* Gallery */
+  .meme-gallery {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 15px 10px;
+  }
+  .meme-gallery img {
+    width: 165px;
+  }
+  .search {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Editor */
+  .meme-editor {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    gap: 20px;
+  }
+  canvas {
+    width: 330px;
+  }
+  .text-editing input {
+    font-size: 16px;
+    padding: 12px;
+    width: 330px;
+    margin-bottom: 10px;
+  }
+  .choices1 {
+    margin-bottom: 10px;
+  }
+  .canvas-choices section img {
+    width: 26px;
+    height: 26px;
+  }
+  .canvas-choices section button {
+    width: 40px;
+    height: 40px;
+  }
+  .font {
+    font-size: 16px;
+    padding: 5px;
+    width: 160px;
+    height: 40px;
+  }
+  .color input {
+    width: 40px;
+    height: 40px;
+  }
+  .img-features .download-btn,
+  .img-features .share-btn {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  /* Main footer */
+  .main-footer {
+    flex-direction: column;
+    gap: 10px;
+    height: 450px;
+  }
+  .main-footer-img {
+    width: 200px;
+    border-radius: 50%;
+  }
+  .main-footer-info {
+    text-align: center;
+    font-size: 15px;
+    width: 270px;
+  }
+  .main-footer-info h1 {
+    font-size: 22px;
+  }
+}
+
+/* SMALL */
+@media (min-width: 640px) and (max-width: 860px) {
+  .btn-toggle-menu {
+    display: none;
+  }
+
+   /* Gallery */
+   .meme-gallery {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 15px 10px;
+  }
+  .meme-gallery img {
+    width: 250px;
+  }
+  .search {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+    /* Editor */
+    .meme-editor {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        margin: 20px;
+        gap: 20px;
+      }
+      canvas {
+        width: 500px;
+      }
+      .text-editing input {
+        font-size: 16px;
+        padding: 12px;
+        width: 330px;
+        margin-bottom: 10px;
+      }
+      .choices1 {
+        margin-bottom: 10px;
+      }
+      .canvas-choices section img {
+        width: 26px;
+        height: 26px;
+      }
+      .canvas-choices section button {
+        width: 40px;
+        height: 40px;
+      }
+      .font {
+        font-size: 16px;
+        padding: 5px;
+        width: 160px;
+        height: 40px;
+      }
+      .color input {
+        width: 40px;
+        height: 40px;
+      }
+      .img-features .download-btn,
+      .img-features .share-btn {
+        font-size: 16px;
+        height: 40px;
+      }
+}
+
+/* MEDIUM */
+@media (min-width: 860px) and (max-width: 1140px) {
+    .btn-toggle-menu {
+        display: none;
+      }
+          /* Editor */
+    .meme-editor {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        margin: 20px;
+        gap: 20px;
+      }
+
+}
+
+/* LARGE */
+@media (min-width: 1140px) {
+    .btn-toggle-menu {
+        display: none;
+      }
+}

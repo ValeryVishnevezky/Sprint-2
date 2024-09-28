@@ -11,26 +11,32 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>MemeGenerator</title>
   </head>
-  
+
   <body onload="onInit()">
     <header class="main-header">
       <img class="main-logo" src="img/logo/LOGO.png" alt="Logo" />
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li class="link-gallery" onclick="onLinkGalleryClick()"><a href="#">Gallery</a></li>
-          <li class="link-editor" onclick="onLinkEditorClick()"><a href="#">Editor</a></li>
+      <div class="main-nav-list">
+        <ul class="main-nav">
+          <li class="link-gallery" onclick="onLinkGalleryClick()">
+            <a href="#">Gallery</a>
+          </li>
+          <li class="link-editor" onclick="onLinkEditorClick()">
+            <a href="#">Editor</a>
+          </li>
         </ul>
-      </nav>
-      <button class="btn-toggle-menu hide" onclick="toggleMenu()">
-        <li class="btn-toggle-menu">
-          <i class="fa-solid fa-bars"></i>
-        </li>
+      </div>
+      <!-- hamburger menu -->
+      <button class="btn-toggle-menu" onclick="onToggleMenu()">
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>
       </button>
     </header>
 
     <!-- Gallery -->
     <section class="gallery">
-
       <!-- Search -->
       <section class="search">
         <section class="search-panel">
@@ -52,66 +58,106 @@
 
       <!-- Meme gallery -->
       <section class="meme-gallery">
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/1.jpg"  onclick="onImageClick(1)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/2.jpg" onclick="onImageClick(2)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/3.jpg" onclick="onImageClick(3)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/4.jpg" onclick="onImageClick(4)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/5.jpg" onclick="onImageClick(5)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/6.jpg" onclick="onImageClick(6)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/7.jpg" onclick="onImageClick(7)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/8.jpg" onclick="onImageClick(8)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/9.jpg" onclick="onImageClick(9)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/10.jpg" onclick="onImageClick(10)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/11.jpg" onclick="onImageClick(11)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/12.jpg" onclick="onImageClick(12)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/13.jpg" onclick="onImageClick(13)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/14.jpg" onclick="onImageClick(14)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/15.jpg" onclick="onImageClick(15)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/16.jpg" onclick="onImageClick(16)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/17.jpg" onclick="onImageClick(17)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/18.jpg" onclick="onImageClick(18)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/19.jpg" onclick="onImageClick(19)" alt="" />
-        </div>
-        <div class="meme-photo">
-          <img src="img/meme-imgs/meme-imgs (square)/20.jpg" onclick="onImageClick(20)" alt="" />
-        </div>
+          <img
+            src="img/meme-imgs/meme-imgs (square)/1.jpg"
+            onclick="onImageClick(1)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/2.jpg"
+            onclick="onImageClick(2)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/3.jpg"
+            onclick="onImageClick(3)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/4.jpg"
+            onclick="onImageClick(4)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/5.jpg"
+            onclick="onImageClick(5)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/6.jpg"
+            onclick="onImageClick(6)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/7.jpg"
+            onclick="onImageClick(7)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/8.jpg"
+            onclick="onImageClick(8)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/9.jpg"
+            onclick="onImageClick(9)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/10.jpg"
+            onclick="onImageClick(10)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/11.jpg"
+            onclick="onImageClick(11)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/12.jpg"
+            onclick="onImageClick(12)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/13.jpg"
+            onclick="onImageClick(13)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/14.jpg"
+            onclick="onImageClick(14)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/15.jpg"
+            onclick="onImageClick(15)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/16.jpg"
+            onclick="onImageClick(16)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/17.jpg"
+            onclick="onImageClick(17)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/18.jpg"
+            onclick="onImageClick(18)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/19.jpg"
+            onclick="onImageClick(19)"
+            alt=""
+          />
+          <img
+            src="img/meme-imgs/meme-imgs (square)/20.jpg"
+            onclick="onImageClick(20)"
+            alt=""
+          />
       </section>
     </section>
 
@@ -121,18 +167,13 @@
         <canvas></canvas>
       </div>
 
-    <!-- Text editing -->
+      <!-- Text editing -->
       <section class="canvas-choices">
         <section class="text-editing">
-          <input
-            type="text"
-            name="meme-text"
-            value=""
-            title="Enter text"
-          />
+          <input type="text" name="meme-text" value="" title="Enter text" />
         </section>
 
-    <!-- Buttons up-down/add/trash -->
+        <!-- Buttons up-down/add/trash -->
         <section class="choices1">
           <button value="up-down" onclick="onSwitchLine()">
             <img
@@ -149,7 +190,7 @@
           </button>
         </section>
 
-    <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
+        <!-- Buttons text-up/text-down/text-left/text-center/text-right -->
         <section class="choices2">
           <button value="text-up" onclick="onFontUp()">
             <img class="text-up" src="img/icons/increase font - icon.png" />
@@ -180,7 +221,7 @@
           </button>
         </section>
 
-    <!-- Buttons impact/background text color/stroke color -->
+        <!-- Buttons impact/background text color/stroke color -->
         <section class="choices3">
           <select class="font" onchange="onFontChange()">
             <option value="Impact">Impact</option>
@@ -205,7 +246,7 @@
           </div>
         </section>
 
-    <!-- Buttons download/share/stroke color -->
+        <!-- Buttons download/share/stroke color -->
         <section class="img-features">
           <button class="download-btn">
             <a
@@ -218,18 +259,23 @@
           </button>
           <button class="share-btn" onclick="onUploadImg()">Share</button>
         </section>
-
-
       </section>
     </section>
     <div class="share-container"></div>
 
     <!-- Main footer -->
     <footer class="main-footer">
-      <img class="main-footer-img" src="img/woman/portrait-woman.jpg" alt="Logo" />
+      <img
+        class="main-footer-img"
+        src="img/woman/portrait-woman.jpg"
+        alt="Logo"
+      />
       <div class="main-footer-info">
         <h1>Monica Geller</h1>
-        <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends </p>
+        <p>
+          is a fictional character, one of the six main characters who appears
+          on the American sitcom Friends
+        </p>
       </div>
     </footer>
 
