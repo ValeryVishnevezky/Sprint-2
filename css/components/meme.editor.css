@@ -105,7 +105,8 @@ canvas {
   width: 100%;
 }
 .img-features .download-btn,
-.img-features .share-btn {
+.img-features .share-btn,
+.share-container button {
   font-size: 20px;
   width: 122px;
   height: 65px;
@@ -116,4 +117,19 @@ canvas {
 .download-btn a {
   color: inherit;
   text-decoration: none;
+}
+
+.share-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.share-container p{
+  font-size: 0.9rem;
+}
+.share-container button {
+  width: 250px;
+  margin-bottom: 300px;
 }

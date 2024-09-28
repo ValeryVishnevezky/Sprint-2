@@ -100,9 +100,17 @@
     height: 40px;
   }
   .img-features .download-btn,
-  .img-features .share-btn {
+  .img-features .share-btn,
+  .share-container button {
     font-size: 16px;
     height: 40px;
+  }
+  .share-container p{
+    font-size: 0.5rem;
+  }
+  .share-container button {
+    width: 250px;
+    margin-bottom: 300px;
   }
 
   /* Main footer */
