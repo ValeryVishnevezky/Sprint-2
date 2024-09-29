@@ -1,0 +1,17 @@
+:root {
+    --clr-orange: #ff7f00;
+    --clr-background: #e3e3e3;
+    --clr-2-background: white;
+    --clr-hover-btn-background: #ffd5ab;
+    --clr-hover-orange-btn-background: #cf6800;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --clr-orange: #c16000;
+      --clr-background: #2e2e2e;
+      --clr-2-background: #424242;
+      --clr-hover-btn-background: #737373;
+      --clr-hover-orange-btn-background: #783c00;
+    }
+  }

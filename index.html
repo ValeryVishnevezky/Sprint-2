@@ -14,7 +14,7 @@
 
   <body onload="onInit()">
     <header class="main-header">
-      <img class="main-logo" src="img/logo/LOGO.png" alt="Logo" />
+      <img class="main-logo" onclick="onLinkGalleryClick()" src="img/logo/LOGO.png" alt="Logo" />
       <div class="main-nav-list">
         <ul class="main-nav">
           <li class="link-gallery" onclick="onLinkGalleryClick()">
@@ -42,7 +42,8 @@
         <section class="search-panel">
           <input
             type="text"
-            name="search-text"
+            class="search-text"
+            oninput="onSetFilter()"
             placeholder="Enter search keyword"
             title="Search"
           />
@@ -57,111 +58,11 @@
       </section>
 
       <!-- Meme gallery -->
-      <section class="meme-gallery">
-          <img
-            src="img/meme-imgs/meme-imgs (square)/1.jpg"
-            onclick="onImageClick(1)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/2.jpg"
-            onclick="onImageClick(2)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/3.jpg"
-            onclick="onImageClick(3)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/4.jpg"
-            onclick="onImageClick(4)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/5.jpg"
-            onclick="onImageClick(5)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/6.jpg"
-            onclick="onImageClick(6)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/7.jpg"
-            onclick="onImageClick(7)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/8.jpg"
-            onclick="onImageClick(8)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/9.jpg"
-            onclick="onImageClick(9)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/10.jpg"
-            onclick="onImageClick(10)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/11.jpg"
-            onclick="onImageClick(11)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/12.jpg"
-            onclick="onImageClick(12)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/13.jpg"
-            onclick="onImageClick(13)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/14.jpg"
-            onclick="onImageClick(14)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/15.jpg"
-            onclick="onImageClick(15)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/16.jpg"
-            onclick="onImageClick(16)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/17.jpg"
-            onclick="onImageClick(17)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/18.jpg"
-            onclick="onImageClick(18)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/19.jpg"
-            onclick="onImageClick(19)"
-            alt=""
-          />
-          <img
-            src="img/meme-imgs/meme-imgs (square)/20.jpg"
-            onclick="onImageClick(20)"
-            alt=""
-          />
-      </section>
+      <section class="meme-gallery"></section>
     </section>
 
     <!-- Meme editor -->
+    <button class="back-to-gallery hide" onclick="onLinkGalleryClick()"><i class="fa-solid fa-arrow-left"></i></button>
     <section class="meme-editor hide">
       <div class="canvas-container">
         <canvas></canvas>
@@ -170,7 +71,7 @@
       <!-- Text editing -->
       <section class="canvas-choices">
         <section class="text-editing">
-          <input type="text" name="meme-text" value="" title="Enter text" />
+          <input type="text" name="meme-text" value="" placeholder="Enter text" />
         </section>
 
         <!-- Buttons up-down/add/trash -->
@@ -250,18 +151,20 @@
         <section class="img-features">
           <button class="download-btn">
             <a
-              href="#"
-              class="btn"
-              onclick="onDownloadImg(this)"
-              download="my-img.jpg"
-              >Save</a
+            href="#"
+            class="btn"
+            onclick="onDownloadImg(this)"
+            download="my-img.jpg"
+            >Save</a
             >
           </button>
           <button class="share-btn" onclick="onUploadImg()">Share</button>
         </section>
+        <input type="file" id="fileInput" class="file-input btn" name="image" onchange="onImgInput(event)" />
+        <label for="fileInput" class="file-input">Choose file</label>
       </section>
+      <div class="share-container"></div>
     </section>
-    <div class="share-container"></div>
 
     <!-- Main footer -->
     <footer class="main-footer">
@@ -287,7 +190,7 @@
 
     <script src="js/util.js"></script>
     <script src="js/storage.service.js"></script>
-    <script src="js/upload.service.js"></script>
+    <script src="js/imgs.features.service.js"></script>
     <script src="js/gallery.service.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/controller.js"></script>

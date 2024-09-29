@@ -5,7 +5,7 @@
   justify-content: center;
   gap: 40px;
   height: 565px;
-  background-color: white;
+  background-color: var(--clr-2-background);
 }
 .main-footer-img {
   width: 325px;
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   height: 210px;
-  background-color: #ff7f00;
+  background-color: var(--clr-orange);
 }
 
 .second-footer-gallery {
@@ -40,5 +40,5 @@
   justify-content: center;
   height: 210px;
   width: 100%;
-  background-color: #ff7f00;
+  background-color: var(--clr-orange);
 }

@@ -9,13 +9,14 @@
   justify-content: space-between;
   height: 67px;
   color: white;
-  background-color: #ff7f00;
+  background-color: var(--clr-orange);
   padding: 0 55px;
 }
 /* Logo */
 img {
   width: 200px;
   height: auto;
+  cursor: pointer;
 }
 
 /* Nav list */

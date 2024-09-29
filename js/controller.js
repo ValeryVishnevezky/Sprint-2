@@ -15,6 +15,8 @@ function onInit() {
     elSecondFooter.classList.add('second-footer-gallery')
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
+    addListeners()
+    renderImgs(gImgs)
 }
 
 // Img id click
@@ -27,6 +29,8 @@ function onImageClick(imgId) {
     elFooter.classList.add('hide')
     var elEditor = document.querySelector('.meme-editor')
     elEditor.classList.remove('hide')
+    var elEditor = document.querySelector('.back-to-gallery')
+    elEditor.classList.remove('hide')
     var elGalleryLink = document.querySelector('.link-gallery')
     elGalleryLink.classList.remove('select-page')
     var elEditorLink = document.querySelector('.link-editor')
@@ -34,27 +38,40 @@ function onImageClick(imgId) {
     var elSecondFooter = document.querySelector('.second-footer')
     elSecondFooter.classList.add('second-footer-editor')
     elSecondFooter.classList.remove('second-footer-gallery')
-    addListeners()
     createMeme(imgId)
     renderMeme(imgId)
+}
+
+// Render imgs on gallery
+function renderImgs(imgs) {
+    const elGallery = document.querySelector('.meme-gallery')
+    const strHtmls = imgs.map(img => `
+            <img class='img-gallery' src="${img.url}" alt="${img.keywords}" onclick="onImageClick('${img.id}')"/>
+    `)
+    elGallery.innerHTML = strHtmls.join('')
+}
+
+// Filter mem by keywords
+function onSetFilter() {
+    const elKeyWords = document.querySelector('.search-panel .search-text')
+    const keyWords = elKeyWords.value.toLowerCase()
+    const filteredImgs = gImgs.filter(img => img.keywords.some(keywords => keywords.toLowerCase().includes(keyWords)))
+    renderImgs(filteredImgs)
+    return filteredImgs
 }
 
 // Render meme
 function renderMeme(imgId) {
     var img = getImgById(imgId)
-    renderImg(img)
+    loadImage(img, renderImg)
 }
 
 // Render image
-function renderImg(imgObj) {
-    var img = new Image()
-    img.src = imgObj.url
-    img.onload = () => {
+function renderImg(img) {
     gElCanvas.width = 540
     gElCanvas.height = (img.naturalHeight * gElCanvas.width) / img.naturalWidth
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     renderLines()
-    }
 }
 
 //Render line text
@@ -149,7 +166,7 @@ function onFontChange() {
 }
 
 // Font up
-function onFontUp(){
+function onFontUp() {
     var meme = getMeme()
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.size = selectedLine.size + 10
@@ -157,7 +174,7 @@ function onFontUp(){
 }
 
 // Font down
-function onFontDown(){
+function onFontDown() {
     var meme = getMeme()
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.size = selectedLine.size - 10
@@ -165,7 +182,7 @@ function onFontDown(){
 }
 
 // Text left
-function onTextLeft(){
+function onTextLeft() {
     var meme = getMeme()
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.align = 'left'
@@ -173,7 +190,7 @@ function onTextLeft(){
 }
 
 // Text center
-function onTextCenter(){
+function onTextCenter() {
     var meme = getMeme()
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.align = 'center'
@@ -181,15 +198,14 @@ function onTextCenter(){
 }
 
 // Text right
-function onTextRight(){
+function onTextRight() {
     var meme = getMeme()
     var selectedLine = meme.lines[meme.selectedLineIdx]
     selectedLine.align = 'right'
     renderLines()
 }
 
-
-// Line move with touch 
+// Line move with cursor/touch 
 function onDown(ev) {
     const pos = getEvPos(ev)
     if (!isLineClicked(pos)) return
@@ -220,6 +236,11 @@ function onDownloadImg(elLink) {
     elLink.href = imgContent
 }
 
+// Add user img
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
+
 //Facebook
 function onUploadToFB(url) {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
@@ -236,4 +257,53 @@ function onUploadImg() {
         </button>`
     }
     uploadImg(canvasData, onSuccess)
+}
+
+
+// Links click
+function onLinkGalleryClick() {
+    var elGallery = document.querySelector('.meme-gallery')
+    elGallery.classList.remove('hide')
+    var elGallery = document.querySelector('.search')
+    elGallery.classList.remove('hide')
+    var elFooter = document.querySelector('.main-footer')
+    elFooter.classList.remove('hide')
+    var elEditor = document.querySelector('.meme-editor')
+    elEditor.classList.add('hide')
+    var elEditor = document.querySelector('.back-to-gallery')
+    elEditor.classList.add('hide')
+    var elGalleryLink = document.querySelector('.link-gallery')
+    elGalleryLink.classList.add('select-page')
+    var elEditorLink = document.querySelector('.link-editor')
+    elEditorLink.classList.remove('select-page')
+    var elSecondFooter = document.querySelector('.second-footer')
+    elSecondFooter.classList.remove('second-footer-editor')
+    elSecondFooter.classList.add('second-footer-gallery')
+    var elEditorLink = document.querySelector('.share-container')
+    elEditorLink.classList.add('hide')
+}
+function onLinkEditorClick() {
+    var elGallery = document.querySelector('.meme-gallery')
+    elGallery.classList.add('hide')
+    var elGallery = document.querySelector('.search')
+    elGallery.classList.add('hide')
+    var elFooter = document.querySelector('.main-footer')
+    elFooter.classList.add('hide')
+    var elEditor = document.querySelector('.meme-editor')
+    elEditor.classList.remove('hide')
+    var elEditor = document.querySelector('.back-to-gallery')
+    elEditor.classList.remove('hide')
+    var elGalleryLink = document.querySelector('.link-gallery')
+    elGalleryLink.classList.remove('select-page')
+    var elEditorLink = document.querySelector('.link-editor')
+    elEditorLink.classList.add('select-page')
+    var elSecondFooter = document.querySelector('.second-footer')
+    elSecondFooter.classList.add('second-footer-editor')
+    elSecondFooter.classList.remove('second-footer-gallery')
+    var elEditorLink = document.querySelector('.share-container')
+    elEditorLink.classList.remove('hide')
+}
+// Menu
+function onToggleMenu() {
+    document.body.classList.toggle("menu-open")
 }

@@ -9,6 +9,7 @@
 /* SETUP */
 @import url("setup/mq.css");
 @import url("setup/typography.css");
+@import url("setup/vars.css");
 
 /* BASICS */
 @import url("basics/base.css");
